@@ -9,7 +9,8 @@ export default class CounterContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: 0
+      value: 0,
+      text: ''
     };
   }
 
@@ -24,13 +25,14 @@ export default class CounterContainer extends Component {
   }
 
   render() {
-    const { value } = this.state;
+    const { value, text } = this.state;
 
     return (
       <div>
         <FancyText>{value}</FancyText>
         <FancyButton onClick={this.increment}>+</FancyButton>
         <FancyButton onClick={this.decrement}>-</FancyButton>
+        <input value={text} onInput={this.linkState('text')} />
       </div>
     );
   }
