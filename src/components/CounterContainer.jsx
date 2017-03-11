@@ -9,23 +9,6 @@ export default class CounterContainer extends React.Component {
     this.state = {
       value: 0
     };
-    this.increment = this.increment.bind(this);
-    this.decrement = this.decrement.bind(this);
-    this.addToValue = this.addToValue.bind(this);
-  }
-
-  increment() {
-    this.addToValue(1);
-  }
-
-  decrement() {
-    this.addToValue(-1);
-  }
-
-  addToValue(value) {
-    this.setState(state => ({
-      value: state.value + value
-    }));
   }
 
   render() {
@@ -34,8 +17,16 @@ export default class CounterContainer extends React.Component {
     return (
       <div>
         <FancyText>{value}</FancyText>
-        <FancyButton onClick={this.increment}>+</FancyButton>
-        <FancyButton onClick={this.decrement}>-</FancyButton>
+        <FancyButton onClick={() => {
+          this.setState({ value: value + 1 })
+        }}>
+          +
+        </FancyButton>
+        <FancyButton onClick={() => {
+          this.setState({ value: value - 1 })
+        }}>
+          -
+        </FancyButton>
       </div>
     );
   }
