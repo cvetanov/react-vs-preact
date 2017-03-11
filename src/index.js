@@ -1,9 +1,9 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import { h, render } from 'preact';
+/** @jsx h */
 import App from './App';
 import './index.css';
 
-ReactDOM.render(
+render(
   <App />,
   document.getElementById('root')
 );
